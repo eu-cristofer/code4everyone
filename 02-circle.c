@@ -14,7 +14,7 @@ int main() {
   printf("Enter radius:\n");
   scanf("%lf", &radius);
   area = PI * radius * radius;
-  printf("radius of %lf meters;\narea id %lf sq meters\n",
+  printf("radius of %lf meters;\narea is %lf sq meters\n",
 		  radius,
 		  area
 	);
