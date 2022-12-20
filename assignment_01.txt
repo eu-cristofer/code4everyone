@@ -1,0 +1,11 @@
+//  Coursera Ex 1
+//
+//  Created by Cristofer Costa on 12/17/22.
+//
+#include<stdio.h>
+
+int main(void)
+{
+    printf(" hello world\n");
+    return 0;
+}

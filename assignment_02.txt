@@ -1,0 +1,13 @@
+//  Coursera Ex 2
+//
+//  Created by Cristofer Costa on 12/17/22.
+//
+#include<stdio.h>
+
+int main(void)
+
+{
+    printf("Happy New Year!\nMay all your joys be pure joys,\n    and all your pain champagne.\n");
+    printf("― Mrs. Graham\n");
+    return 0;
+}
