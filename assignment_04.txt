@@ -1,0 +1,17 @@
+//
+//  main.c
+//  Coursera assignment IV
+//
+//  Created by Cristofer Costa on 12/29/22.
+//
+#include<stdio.h>
+#include<math.h>
+
+int main(void){
+    float sine, input;
+    printf("Enter the angle in radians:");
+    scanf("%f", &input);
+    sine = sin(input);
+    printf("The sine is : %f \n\n",sine);
+    return 0;
+}
