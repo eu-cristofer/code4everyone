@@ -46,7 +46,8 @@ int main(int argc, char *argv[]) {
         realPart = -b/(2*a);
         imagPart = sqrt(-discriminant)/(2*a);
 	printf("Imaginary roots\n");
-        printf("root1 = %.2lf+%.2lfi and root2 = %.2lf-%.2lfi", realPart, imagPart, realPart, imagPart);
+        printf("root1 = %.2lf+%.2lfi and root2 = %.2lf-%.2lfi",
+                realPart, imagPart, realPart, imagPart);
     }
 
     return 0;
