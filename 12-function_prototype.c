@@ -9,7 +9,6 @@
 
 double square(double);
 
-
 int main(int argc, char const *argv[]) {
     // check if the number of arguments is correct
     if(argc != 2){
