@@ -6,21 +6,18 @@
  *
  * Cristofer Costa - 2023.02.09
 */
+
 #include <stdio.h>
 #include <stdlib.h>
 
 int main(void){
-	FILE* ptr;
+    FILE* ptr;
 
-	// Opening file in reading mode
-	ptr = fopen("course_files\\08_elephant_seal_data.txt", "r");
+    // Opening file in reading mode
+    ptr = fopen("08_elephant_seal_data.txt", "r");
 
-	if (NULL == ptr) {
-		printf("file can't be opened \n");
-	}
-
-    int numbers[5000];
-    int i = 0;              // Array index / sample counter
+    int numbers[1000];
+    int i = 0;
 
     // Populating the array with the raw data
     while (fscanf(ptr, "%d", &numbers[i]) != EOF)
@@ -36,9 +33,8 @@ int main(void){
     for (int j = 0; j < i; j++)
        sum += numbers[j];
 
-    printf("The average  the average weight of the northern\n" \
-           "elephant seal (Mirounga angustirostris) is: %0.2f.\n", sum / i);
+    printf("The average is: %0.2f.\n", sum / i);
 
-	fclose(ptr);
-	return 0;
+    fclose(ptr);
+    return 0;
 }
