@@ -1,0 +1,40 @@
+/*
+ * Compute the average weight for a population of elephant
+ * seals read into an array.
+ * 
+ * c 4 every one course
+ *
+ * Cristofer Costa - 2023.02.09
+*/
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void){
+    FILE* ptr;
+
+    // Opening file in reading mode
+    ptr = fopen("08_elephant_seal_data.txt", "r");
+
+    int numbers[1000];
+    int i = 0;
+
+    // Populating the array with the raw data
+    while (fscanf(ptr, "%d", &numbers[i]) != EOF)
+    {
+      i++;
+    }
+
+    printf("Number of samples from raw data: %d.\n", i);
+
+    // Computing the average weight
+    float sum = 0;
+
+    for (int j = 0; j < i; j++)
+       sum += numbers[j];
+
+    printf("The average is: %0.2f.\n", sum / i);
+
+    fclose(ptr);
+    return 0;
+}
