@@ -1,6 +1,16 @@
-# Notes taken during the course
+# Notes taken during the courses
 
-## Vim usage
+## Contents
+
+[Vim](#vim)
+
+[Bash](#bash)
+
+[Programming Fundamentals](#programming-fundamentals)
+
+[Structured Programming](#structured-programming)
+
+## Vim
 
 Highlitght the syntax
 ```
@@ -12,7 +22,8 @@ Adjust the tabs
     :set tabstop=4
 ```
 
-## Tips to run the coda as showed by the instructor
+## Bash
+### Tips to run the code as showed by the instructor
 
 To run the code 08-char_cnt.c with bash input redirect type:
 ```
@@ -21,7 +32,18 @@ To run the code 08-char_cnt.c with bash input redirect type:
 
 More information on [gnu.org](https://www.gnu.org/software/bash/manual/html_node/Redirections.html).
 
-## Comma operator
+## Programming Fundamentals
+
+### Main topics
+1. How to use the compiler (GCC and Vim);
+2. Lexical elements (identifiers, constants, operators, punctuation, keywords,comments)
+3. Fundamental data types (int, float, char)
+4. Flow of control (compound statement, loops, decision)
+5. Functions (call by value, definition, declaration, prototype, storage class {static})
+6. Arrays, Pointers and Strings (call by ref)
+
+
+### Comma operator
 The comma operator is written as this;
 ```
     expression1, expression2
@@ -32,12 +54,21 @@ and its semantics are first expression1 gets evaluated. Only after that does exp
     printf("%d.", c);     //It will print 1
 ```
 
-## Things to think about
+### Things to think about
 
 A function largely should should do one thing well. This do one thing, they don't move multiple things.
 
 Keep the function in one page. It should be like a paragraph. It is easy to test. A function is a unit you can manage and test efficiently (pre conditions and pos conditions)
 
-## ADT
+## Structured Programming
+
+### Main topcis
+
+1. Enumeration
+### ADT
 
 Abstract Data Type is a concept or model of a data type. An abstract data type is defined by its behavior (semantics) from the point of view of a user, of the data, specifically in terms of possible values, possible operations on data of this type, and the behavior of these operations. From [Wikipedia](https://en.wikipedia.org/wiki/Abstract_data_type).
+
+### LIFO
+
+Last in first out!
