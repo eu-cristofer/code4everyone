@@ -14,32 +14,35 @@ void print_day(enum day d)
     switch (d)
     {
     case sun:
-    printf(" sunday "); break;
+        printf(" sunday "); break;
     case mon:
-    printf(" monday "); break;
+        printf(" monday "); break;
     case tue:
-    printf(" tuesday "); break;
+        printf(" tuesday "); break;
     case wed:
-    printf(" wednesday "); break;
+        printf(" wednesday "); break;
     case thu:
-    printf(" thursday "); break;
+        printf(" thursday "); break;
     case fri:
-    printf(" friday "); break;
+        printf(" friday "); break;
     case sat:
-    printf(" saturday "); break;
+        printf(" saturday "); break;
     default:
-    printf("%d is an error", d);
+        printf("%d is an error", d);
     }
 }
 
 /* Function next day*/
 enum day next_day(enum day d)
-{
+{   
+    /* this function returns the next day when passed a enumerated value;
+    It uses the modulo operator to map it back when it reaches friday
+        return: enum next_day */
     return( (d + 1) % 7);
 }
 
-int main(void) {
-    /* code */
+int main(void)
+{
     enum day today = sat;
     print_day(today);
     printf("\n\n");
