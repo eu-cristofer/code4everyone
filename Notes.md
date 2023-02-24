@@ -2,15 +2,15 @@
 
 ## Contents
 
-[Vim](#vim)
+1. [Vim](#vim)
 
-[Bash](#bash)
+2. [Bash](#bash)
 
-[Programming Fundamentals](#programming-fundamentals)
+3. [Programming Fundamentals](#programming-fundamentals)
 
-[Structured Programming](#structured-programming)
+4. [Structured Programming](#structured-programming)
 
-## Vim
+## 1. Vim
 
 Highlitght the syntax
 ```
@@ -22,17 +22,17 @@ Adjust the tabs
     :set tabstop=4
 ```
 
-## Bash
+## 2. Bash
 ### Tips to run the code as showed by the instructor
 
-To run the code 08-char_cnt.c with bash input redirect type:
+To run the code 08-char_cnt.c with bash input **redirect** type:
 ```
     $./a.out < 08-char_cnt.c
 ```
 
 More information on [gnu.org](https://www.gnu.org/software/bash/manual/html_node/Redirections.html).
 
-## Programming Fundamentals
+## 3. Programming Fundamentals
 
 ### Main topics
 1. How to use the compiler (GCC and Vim);
@@ -60,14 +60,14 @@ A function largely should should do one thing well. This do one thing, they don'
 
 Keep the function in one page. It should be like a paragraph. It is easy to test. A function is a unit you can manage and test efficiently (pre conditions and pos conditions)
 
-## Structured Programming
+## 4. Structured Programming
 
 ### Main topcis
 
 1. Enumeration
 ### ADT
 
-Abstract Data Type is a concept or model of a data type. An abstract data type is defined by its behavior (semantics) from the point of view of a user, of the data, specifically in terms of possible values, possible operations on data of this type, and the behavior of these operations. From [Wikipedia](https://en.wikipedia.org/wiki/Abstract_data_type).
+**Abstract Data Type** is a concept or model of a data type. An abstract data type is defined by its behavior (semantics) from the point of view of a user, of the data, specifically in terms of possible values, possible operations on data of this type, and the behavior of these operations. From [Wikipedia](https://en.wikipedia.org/wiki/Abstract_data_type).
 
 ### LIFO
 

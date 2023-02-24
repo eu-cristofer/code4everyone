@@ -52,17 +52,31 @@ day yesterday(day d)
     /* this function returns the day before when passed a enumerated value;
     It uses the modulo operator to map it back when it reaches friday
         return: enum next_day */
-    return( (d - 1) % 7);
+    return( (d + 6) % 7);
 }
 
 int main(void) {
     /* code */
     day today = sat;
+
+    printf("Print today with 'sat' as input: ");
     print_day(today);
     printf("\n\n");
+    
+    printf("Print the output of '7' as input: ");
     print_day(7);
     printf("\n\n");
+
+    printf("Print next day with 'sat' as input: ");
     print_day(next_day(today));
+    printf("\n\n");
+
+    printf("Print yesterday with 'sun' as input: ");
+    print_day(yesterday(sun));
+    printf("\n\n");
+
+    printf("Print yesterday with 'mon' as input: ");
+    print_day(yesterday(mon));
     printf("\n\n");
     return 0;
 }
