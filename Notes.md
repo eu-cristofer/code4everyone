@@ -64,10 +64,22 @@ Keep the function in one page. It should be like a paragraph. It is easy to test
 
 ### Main topcis
 
-1. Enumeration
+1. Enumerations as ADT
+2. The C preprocessor
 ### ADT
 
 **Abstract Data Type** is a concept or model of a data type. An abstract data type is defined by its behavior (semantics) from the point of view of a user, of the data, specifically in terms of possible values, possible operations on data of this type, and the behavior of these operations. From [Wikipedia](https://en.wikipedia.org/wiki/Abstract_data_type).
+
+### The C preprocessor
+
+The C preprocessor does things before the actual code got compiled, like **link** in standard files (```#include <stdio.h>, #include <math.h>```, which means go and look it in a standard place and get one of the C standard header file), and it also does macro expansion (```#define C 123.56```).
+
+Now in more modern languages, those are frequently just a component
+of the overall compiler and there's frequently nothing to do with a preprocessor.
+
+Tip to compile and expand macros:
+
+```gcc -E -o file_expanded.c file.c```
 
 ### LIFO
 
