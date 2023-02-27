@@ -2,37 +2,12 @@
 
 ## Contents
 
-1. [Vim](#vim)
+1. [Programming Fundamentals](#programming-fundamentals)
 
-2. [Bash](#bash)
+2. [Structured Programming](#structured-programming)
 
-3. [Programming Fundamentals](#programming-fundamentals)
 
-4. [Structured Programming](#structured-programming)
-
-## 1. Vim
-
-Highlitght the syntax
-```
-    :syntax on
-```
-
-Adjust the tabs
-```
-    :set tabstop=4
-```
-
-## 2. Bash
-### Tips to run the code as showed by the instructor
-
-To run the code 08-char_cnt.c with bash input **redirect** type:
-```
-    $./a.out < 08-char_cnt.c
-```
-
-More information on [gnu.org](https://www.gnu.org/software/bash/manual/html_node/Redirections.html).
-
-## 3. Programming Fundamentals
+## 1. Programming Fundamentals
 
 ### Main topics
 1. How to use the compiler (GCC and Vim);
@@ -60,7 +35,7 @@ A function largely should should do one thing well. This do one thing, they don'
 
 Keep the function in one page. It should be like a paragraph. It is easy to test. A function is a unit you can manage and test efficiently (pre conditions and pos conditions)
 
-## 4. Structured Programming
+## 2. Structured Programming
 
 ### Main topcis
 
