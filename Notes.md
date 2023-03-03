@@ -56,6 +56,8 @@ Tip to compile and expand macros:
 
 ```gcc -E -o file_expanded.c file.c```
 
-### LIFO
+### Stack ADT
 
-Last in first out!
+**LIFO**: Last in first out.
+
+Operations (verbs): push, pop, top, empty, full and reset.
