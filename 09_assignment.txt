@@ -1,0 +1,107 @@
+
+/*
+  Assignment #1
+  Cristofer
+*/
+
+#include <stdio.h>
+
+typedef enum month{
+    jan, feb, mar, apr, may, jun,
+    jul, ago, sep, oct, nov, dec
+} month;
+
+typedef struct date{
+    month m;
+    int d;
+} date;
+
+void print_date(date day){
+    switch(day.m){
+        case 0:
+            printf("January %d.\n", day.d); break;
+        case 1:
+            printf("February %d.\n", day.d); break;
+        case 2:
+            printf("March %d.\n", day.d); break;
+        case 3:
+            printf("April %d.\n", day.d); break;
+        case 4:
+            printf("May %d.\n", day.d); break;
+        case 5:
+            printf("June %d.\n", day.d); break;
+        case 6:
+            printf("July %d.\n", day.d); break;
+        case 7:
+            printf("August %d.\n", day.d); break;
+        case 8:
+            printf("September %d.\n", day.d); break;
+        case 9:
+            printf("October %d.\n", day.d); break;
+        case 10:
+            printf("November %d.\n", day.d); break;
+        case 11:
+            printf("December %d.\n", day.d); break;
+        default:
+            printf("not a valid month");
+    }
+}
+
+date next_day(date day){
+    date next_d;
+    switch(day.m){
+        case 1:
+            next_d.d = (day.d + 1) % 29; break;
+        case 3:
+        case 5:
+        case 8:
+        case 10:
+            next_d.d = (day.d + 1) % 31; break;
+        default:
+            next_d.d = (day.d + 1) % 32;
+    }
+    
+    if(next_d.d == 0){
+        ++next_d.d;
+        next_d.m = (day.m + 1) % 12;
+    }
+    return next_d;
+}
+
+
+int main(void) {
+    /* code */
+    date today;
+    date*  ptr = &today;
+    
+    /* printing out the date */
+    
+    /* February 28 */
+    ptr -> m = feb;
+    ptr -> d = 28;
+    print_date(today);
+    print_date(next_day(today));
+    printf("\n");
+    
+    /* March 14 */
+    ptr -> m = mar;
+    ptr -> d = 14;
+    print_date(today);
+    print_date(next_day(today));
+    printf("\n");
+    
+    /* October 31 */
+    ptr -> m = oct;
+    ptr -> d = 31;
+    print_date(today);
+    print_date(next_day(today));
+    printf("\n");
+    
+    /* December 31 */
+    ptr -> m = dec;
+    ptr -> d = 31;
+    print_date(today);
+    print_date(next_day(today));
+    
+    return 0;
+}
