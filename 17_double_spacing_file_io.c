@@ -47,5 +47,6 @@ int main(int argc, char *argv[])
     print_file(ofp);
     printf("\n\n");
     fclose(ifp);
+    fclose(ofp);
     return 0;
 }
