@@ -25,4 +25,11 @@ In the new world we live in, coding is a universally valuable skill, whether you
 This is a continuation of C for Everyone: Fundamentals, which you should take before beginning this course. 
 The time estimated time commitment for this course is five hours a week for five weeks.
 
+Status: Done!
+
+## C++ For C Programmers, Part A
+
+This course is for experienced C programmers who want to program in C++. The examples and exercises require a basic understanding of algorithms and object-oriented
+software.
+
 Status: in course.

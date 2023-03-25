@@ -41,6 +41,13 @@ Keep the function in one page. It should be like a paragraph. It is easy to test
 
 1. Enumerations as ADT
 2. The C preprocessor
+3. Assert code
+4. ADT stack
+5. ADT lis
+6. Binary trees
+7. File I/O
+8. Intro to C++
+
 ### ADT
 
 **Abstract Data Type** is a concept or model of a data type. An abstract data type is defined by its behavior (semantics) from the point of view of a user, of the data, specifically in terms of possible values, possible operations on data of this type, and the behavior of these operations. From [Wikipedia](https://en.wikipedia.org/wiki/Abstract_data_type).
@@ -61,3 +68,10 @@ Tip to compile and expand macros:
 **LIFO**: Last in first out.
 
 Operations (verbs): push, pop, top, empty, full and reset.
+
+## 3. C++ For C Programmers, Part A
+
+### Main topcis
+
+1. C++ as a Better C
+2. Converting C program to C++

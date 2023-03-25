@@ -55,20 +55,25 @@ int main(int argc, char *argv[]) {
     // Open the input file.
     FILE* fp = fopen(argv[1], "r");
     int count, i;
+
     // Read the first integer in the file to get the number of integers to read.
     fscanf(fp, "%d", &count);
+    
     // Allocate an array to store the integers.
     int data[count];
+    
     // Read each integer in the file into the array.
     for (i = 0; i < count; i++) {
         fscanf(fp, "%d", &data[i]);
     }
     fclose(fp);
+    
     node *root = NULL;
     // Insert each integer from the array into the binary tree.
     for (i = 0; i < count; i++) {
         insert(&root, data[i]);
     }
+    
     // Traverse the binary tree in-order and print each node's value to the screen.
     inorder(root);
     return 0;
