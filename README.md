@@ -16,7 +16,7 @@ This course is for everyone. In the new world we live in, coding is a universall
 
 No prior knowledge of coding is needed for this course. We'll start at the beginning. The time estimated time commitment for this course is five hours a week for five weeks.
 
-Status: Done! Check here the [certificate](https://coursera.org/share/bc976492e5e765668534fbb8928c9ead).
+Status: Done! Check here the [certificate](https://www.coursera.org/account/accomplishments/certificate/WKLXV8S4WE2R).
 
 ## C for Everyone: Structured Programming
 
@@ -25,7 +25,7 @@ In the new world we live in, coding is a universally valuable skill, whether you
 This is a continuation of C for Everyone: Fundamentals, which you should take before beginning this course. 
 The time estimated time commitment for this course is five hours a week for five weeks.
 
-Status: Done!
+Status: Done! Check here the honors [certificate](https://www.coursera.org/account/accomplishments/certificate/44KZLQLJJUJH).
 
 ## C++ For C Programmers, Part A
 
