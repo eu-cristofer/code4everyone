@@ -1,4 +1,3 @@
-
 /*
     Generic and Functions
 
