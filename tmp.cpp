@@ -7,11 +7,13 @@
 
 #include <iostream>
 
+using namespace std;
+
 int main(int argc, const char * argv[]) {
     
     /* code */
 
-    std::cout << "Hello world!";
+    cout << "Hello world!";
     
     return 0;
 }

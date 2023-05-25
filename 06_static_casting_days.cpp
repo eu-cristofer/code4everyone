@@ -1,6 +1,6 @@
 
 /*
-    Code Title
+    enum days defining operations
 
     Cristofer Costa
     cristofercosta@yahoo.com.br
@@ -21,8 +21,10 @@ days operator++ (const days &d) {
 }
 
 int main(int argc, const char * argv[]) {
+    
     days d = SAT, e;
     e = ++d;
     cout << d << '\t' << e <<  endl;
+    
     return 0;
 }

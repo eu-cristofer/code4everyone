@@ -75,3 +75,9 @@ Operations (verbs): push, pop, top, empty, full and reset.
 
 1. C++ as a Better C
 2. Converting C program to C++
+3. Basic of Generics and Classes
+
+
+### Notes concerning Classes
+
+The goal of Objec Oriented Programming is to make your object seems natural, seem compatible with the existing programming language data type such as int or float.
