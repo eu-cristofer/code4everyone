@@ -1,6 +1,6 @@
 
 /*
-    Class point
+    Class Point
 
     Cristofer Costa
     cristofercosta@yahoo.com.br
@@ -10,7 +10,7 @@
 
 using namespace std;
 
-class point
+class Point
 {
 private:
     /*
@@ -40,12 +40,12 @@ public:
     void setx(double v) {x = v;}        // mutator method
 };
 
-point operator+ (const point& p1, const point& p2){
-    point sum = {p1.x + p2.x, p1.y + p2.y};
+Point operator+ (const Point& p1, const Point& p2){
+    Point sum = {p1.x + p2.x, p1.y + p2.y};
     return sum;
 }
 
-ostream& operator<< (ostream& out, const point& p){
+ostream& operator<< (ostream& out, const Point& p){
     /*
         Usual signature for overloading ostream& operator:
         (ostream& out, const my_type&  v )
@@ -53,7 +53,7 @@ ostream& operator<< (ostream& out, const point& p){
         my_type is passeds wuth a const modifier so as not
         to be modified.
     */
-    out << "( " << p.x << ", " << p.y << " )";
+    out << "Point(" << p.x << ", " << p.y << ")";
     return out;
 }
 
@@ -61,7 +61,7 @@ int main() {
     
     /* code */
 
-    point a = {3.5, 2.5}, b = {2.5, 4.5}, c;
+    Point a = {3.5, 2.5}, b = {2.5, 4.5}, c;
 
     cout << "a = " << a << endl;
     cout << "b = " << b << endl;
