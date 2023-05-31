@@ -35,6 +35,15 @@ private:
     */
     // double x, y;
 public:
+    Point(double x =0.0, double y = 0.0):x(x),y(y){}
+    /*
+        Constructors
+        ============
+        Its signature is void.
+        Constructors that may be called without any argument are
+        default constructors. Usually it creates a obj with null value
+        Its has a initializer list.
+    */   
     double x, y;
     double getx() {return x;}           // member function or method
     void setx(double v) {x = v;}        // mutator method
@@ -61,9 +70,13 @@ int main() {
     
     /* code */
 
-    Point a = {3.5, 2.5}, b = {2.5, 4.5}, c;
+    Point a, b = {2.5, 4.5}, c;
 
-    cout << "a = " << a << endl;
+    cout << "a Point initialized null:\na = " << a << endl;
+    a.x = 3.5;
+    a.y = 2.5;
+
+    cout << "a Point after assignment:\na = " << a << endl;
     cout << "b = " << b << endl;
 
     c = a + b;
