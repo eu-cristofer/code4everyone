@@ -1,6 +1,6 @@
 
 /*
-    Improved double linked list
+    Improved doubly linked list
     This code insert functionalties in double
     linked list: Cursor; prepend; and append.
 
@@ -10,6 +10,9 @@
 
 #include <iostream>
 
+
+// Class to store the data of a doubly linked list.
+// The Node is the unit element of the list.
 class Node {
 public:
     int data;         // Data stored in the node
@@ -19,43 +22,46 @@ public:
     Node(int value) : data(value), prev(nullptr), next(nullptr) {}
 };
 
+
+// Class to implement the wrapper of the list controlling the flow 
+// of creation and access to each Node.
 class DoublyLinkedList {
 private:
     Node* head;       // Pointer to the head node of the list
     Node* tail;       // Pointer to the tail node of the list
     Node* _cursor;    // Pointer to the actual node
-    int _length;      // Number of nodes in the list
+    int _length;      // Int ti store the number of nodes in the list
 
 public:
-    DoublyLinkedList();
     // Default constructor
-
-    ~DoublyLinkedList();
-    // Destructor
-
-    int length();
-    // Returns how many nodes does the list has
-
-    void prepend(int value);
-    // Insert a new node at the beginning of the list - LIFO
-
-    void append(int value);
-    // Insert a new node at the end of the list - FIFO
-
-    bool search(int value);
-    // Search for a value in the list
+    DoublyLinkedList();
     
-    friend std::ostream& operator<<(std::ostream& out, const DoublyLinkedList& list);
+    // Destructor
+    ~DoublyLinkedList();
+    
+    // Returns how many nodes does the list has
+    int length();
+    
+    // Insert a new node at the beginning of the list - LIFO
+    void prepend(int value);
+    
+    // Insert a new node at the end of the list - FIFO
+    void append(int value);
+    
+    // Search for a value in the list
+    bool search(int value);
+    
     // Overloaded operator<< for printing the list
-
-    void print_backward();
+    friend std::ostream& operator<<(std::ostream& out, const DoublyLinkedList& list);
+    
     // Print the whole list stanrting with the last element
-
-    int cursor();
+    void print_backward();
+    
     // Return the data of the current node and engage the next
-
-    void reset_cursor();
+    int cursor();
+    
     // Return the cursor to the first element of the list
+    void reset_cursor();
 };
 
 DoublyLinkedList::DoublyLinkedList()
@@ -68,15 +74,17 @@ DoublyLinkedList::DoublyLinkedList()
 
 DoublyLinkedList::~DoublyLinkedList(){
     // Delete all nodes when the list is destroyed
-    Node* current = head;
-    while (current != nullptr) {
-        Node* next = current->next;
-        delete current;
-        current = next;
+    _cursor = head;
+    while (_cursor != nullptr) {
+        _cursor = head->next;
+        delete head;
+        head = _cursor;
     }
+    std::cout << "DoublyLinkedList Nodes erased!\n";
 }
 
 int DoublyLinkedList::length(){
+    // Returns how many Nodes does the list has
     return _length;
 }
 
@@ -160,7 +168,7 @@ int DoublyLinkedList::cursor(){
 }
 
 void DoublyLinkedList::reset_cursor(){
-    // Return the cursor to the first element of the list
+    // Returns the cursor to the first element of the list
     _cursor = head;
 }
 
