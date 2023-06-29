@@ -9,6 +9,8 @@
 #include <iostream>
 #include <list>
 #include <vector>
+#include <ctime>
+#include <random>
 
 using namespace std;
 
@@ -16,7 +18,7 @@ using namespace std;
 // Class to store the Edge data. 
 class Edge {
 public:
-    unsigned short _cost;          // Edge positive cost (distance)
+    unsigned short _cost;           // Edge positive cost (distance)
     unsigned short _v;              // Vertex v - origin
     unsigned short _w;              // Vertex w - destination
 
@@ -31,8 +33,8 @@ public:
 // Class to implement a Node wrapper
 class Node {
 private:
-    list<Edge*> _edges;             // list of edges        
-    unsigned short _id;             // node id
+    list<Edge*> _edges;             // List of edges        
+    unsigned short _id;             // Node id
 
 public:
     // Constructor
@@ -55,7 +57,7 @@ public:
 
 Node::Node(unsigned short id): _id(id) {
     // Constructor
-    cout << "New Node #" << id << " object instantiated." << endl;
+    // cout << "New Node #" << id << " object instantiated." << endl;
 }
 
 Node::~Node(){
@@ -75,7 +77,7 @@ void Node::add_edge(unsigned short cost,
     // Create a new Edge fo the Node
     Edge* new_edge = new Edge(cost, v, w);
     _edges.push_back(new_edge);
-    cout << "New edge created." << endl;
+    // cout << "New edge created." << endl;
 }
 
 void Node::print_edges(){
@@ -90,7 +92,6 @@ void Node::print_edges(){
 }
 
 
-
 // Class to implement a Graph
 class Graph
 {
@@ -103,8 +104,11 @@ public:
     // Destructor
     ~Graph();
 
-    // Return the number of Nodes in the Graph
+    // Return the number of Nodes of the Graph
     int nodes_size(){return _nodes.size();};
+
+    // Return the number of Edges of the Graph
+    int edges_size();
 
     // Add node to the Graph
     void add_node(Node* node_ptr){_nodes.push_back(node_ptr);};
@@ -112,12 +116,15 @@ public:
     // Print Nodes and its Edges from the Graph
     void print_nodes();
 
-    void random_graph(unsigned short edge_density, unsigned short distance_range);
+    // Generate random data
+    void random_graph(unsigned short nodes,
+                      double edge_density,
+                      unsigned short distance_range);
 };
 
 Graph::Graph(/* args */){
     // Constructor
-    cout << "New Graph object instantiated." << endl;
+    // cout << "New Graph object instantiated." << endl;
 }
 
 Graph::~Graph(){
@@ -128,6 +135,15 @@ Graph::~Graph(){
     }
 }
 
+int Graph::edges_size(){
+    int sum = 0;
+    vector<Node*>::iterator it;
+    for (it=_nodes.begin(); it!=_nodes.end(); it++){
+        sum += (*it)->edges_size();
+    }
+    return sum;
+}
+
 void Graph::print_nodes(){
     // Print Nodes and its Edges from the Graph
     vector<Node*>::iterator it;
@@ -136,12 +152,23 @@ void Graph::print_nodes(){
     }
 }
 
-void Graph::random_graph(unsigned short edge_density, unsigned short distance_range){
+void Graph::random_graph(unsigned short nodes,
+                         double edge_density,
+                         unsigned short distance_range){
+    // This function aims to create a random graph
     Node* node;
-    cout << "\nRandon Graph being generated.\n";
-    for (int i = 0; i < 10; i++){
+    default_random_engine generator(time(0));
+    uniform_int_distribution<unsigned> random_nodes(1, nodes),
+                                       random_edges(0,4),
+                                       random_distance(1, distance_range);
+    int cost, destination;
+    cout << "\nrandom Graph being generated.\n";
+    for (int i = 0; i < nodes; i++){
         node = new Node(i);
-        node->add_edge(1,1,1);
+        for (int j = random_edges(generator); j < 5; j++){
+            cost = random_distance(generator);
+            node->add_edge(cost, i, random_nodes(generator));
+        } 
         add_node(node);
     }
 }
@@ -164,10 +191,12 @@ int main(int argc, const char * argv[]) {
 
     /* Automatic Graph creation*/
     cout << "\n\nAutomatic Graph creation:\n";
-    Graph graph_randon;
-    graph_randon.random_graph(1,2);
-    cout << "\nGraph size: " << graph_randon.nodes_size() << " node(s).\n";
-    graph_randon.print_nodes();
+    Graph graph_random;
+    graph_random.random_graph(10,1,10);
+    cout << "\nPrinting Graph information:\n";
+    cout << "Nodes size: " << graph_random.nodes_size() << endl;
+    cout << "Edges size: " << graph_random.edges_size() << endl;
+    graph_random.print_nodes();
 
     return 0;
 }
