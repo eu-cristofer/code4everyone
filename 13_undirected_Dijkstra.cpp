@@ -26,14 +26,18 @@ public:
     unsigned short _cost;           // Edge positive cost (distance)
     
     // Constructor
-    Edge(unsigned short v,
-         unsigned short w,
-         unsigned short cost) : _v(v),
-                                _w(w),
-                                _cost(cost) {cout << "New instance " << *this << "." << endl;}
+    Edge(
+        unsigned short v,
+        unsigned short w,
+        unsigned short cost
+    )
+        : _v(v)
+        , _w(w)
+        , _cost(cost)
+    {cout << "New instance " << *this << "." << endl;}
 
     // Destructor
-    ~Edge(){cout << "Edge " << this << " deleted." << endl;};
+    ~Edge(){cout << "Edge " << this << " deleted." << endl;}
 
     // Operator << overloading
     friend ostream& operator<<(ostream& out, const Edge& edge);
@@ -57,10 +61,12 @@ private:
 
 public:
     // Constructor
-    Vertex(unsigned short id) : _id(id) {cout << "New instance " << *this << "." << endl;};
+    Vertex(unsigned short id)
+        : _id(id)
+    {cout << "New instance " << *this << "." << endl;}
 
     // Destructor
-    ~Vertex(){cout << "Vertex " << this << " deleted." << endl;};
+    ~Vertex(){cout << "Vertex " << this << " deleted." << endl;}
 
     // Operator << overloading
     friend ostream& operator<<(ostream& out, const Vertex& vertex);
@@ -82,33 +88,38 @@ private:
     vector<Vertex*> _path;            // Path vector
 public:
     // Constructor
-    Graph(){cout << "New instace " << *this << "." << endl;};
+    Graph(){cout << "New instace " << *this << "." << endl;}
 
     // Destructor
     ~Graph();
 
     // Operator << overloading
     friend ostream& operator<<(ostream& out, const Graph& graph);
+    
+    // Operator [] overloading
+    Vertex operator[](int i);
 
     // Return the number of Vertcies of the Graph
-    int vertices_size(){return _vertices.size();};
+    int vertices_size(){return _vertices.size();}
 
     // Return the number of Edges of the Graph
-    int edges_size(){return _edges.size();};
+    int edges_size(){return _edges.size();}
 
     // Create Vertices
     void create_vertices(int quantity = 1);
 
     // Add Vertex to the Graph
-    void add_vertex(Vertex* vertex_ptr){_vertices.push_back(vertex_ptr);};
+    void add_vertex(Vertex* vertex_ptr){_vertices.push_back(vertex_ptr);}
 
     // Add Edge to the Graph
     void add_edge(Edge* edge_ptr);
 
     // Generate random data
-    void random_graph(unsigned short vertices_size,
-                      double edge_density,
-                      unsigned short distance_range);
+    void random_graph(
+        unsigned short vertices_size,
+        double edge_density,
+        unsigned short distance_range
+    );
 };
 
 Graph::~Graph(){
@@ -123,7 +134,7 @@ Graph::~Graph(){
     for (it=_edges.begin(); it!=_edges.end(); it++){
         delete *it;
     }
-    cout << "Graph object deleted." << endl;
+    cout << "Graph object " << this << " deleted." << endl;
 }
 
 ostream& operator<<(ostream& out, const Graph& graph){
@@ -132,6 +143,10 @@ ostream& operator<<(ostream& out, const Graph& graph){
     out << ", edges: " << graph._edges.size();
     out << ")";
     return out;
+}
+
+Vertex Graph::operator[](int i){
+    return *_vertices[i];
 }
 
 void Graph::add_edge(Edge* edge_ptr){
@@ -190,6 +205,17 @@ int main() {
     cout << "\tNumber of vertices: " << graph->vertices_size() << endl;
     cout << "\tNumber of edges: " << graph->edges_size() << endl;
     cout << *graph << endl;
+    delete(graph);
+    
+    /* Autometic Graph Creation*/
+    cout << "\nAutomatic graph generation:" << endl;
+    graph = new Graph();
+    graph->create_vertices(10);
+    edge_ptr = new Edge(1,2,1);
+    graph->add_edge(edge_ptr);
+    cout << "_______________________" << endl;
+    cout << (*graph)[0] << endl;
+    
     delete(graph);
     
     // cout << "\nPrinting all the edges from a vertex:\n";
