@@ -156,7 +156,7 @@ public:
     friend ostream& operator<<(ostream& out, const Graph& graph);
     
     // Operator [] overloading
-    Vertex operator[](int i);
+    Vertex* operator[](int i);
  
     // Number of Vertcies of the Graph
     int vertices_size(){return _vertices.size();}
@@ -216,8 +216,8 @@ ostream& operator<<(ostream& out, const Graph& graph){
     return out;
 }
 
-Vertex Graph::operator[](int i){
-    return *_vertices[i];
+Vertex* Graph::operator[](int i){
+    return _vertices[i];
 }
 
 void Graph::add_edge(Edge* edge_ptr){
@@ -302,6 +302,8 @@ class ShortestPath
 private:
     Graph* _graph;
     vector<Vertex*> _path;
+    vector<Edge*> _edges;
+    int _v, _w;                     // Origin and destination id
 public:
     // Constructor
     ShortestPath(Graph* graph):_graph(graph){};
@@ -327,29 +329,69 @@ ShortestPath::~ShortestPath(){
     //cout << "ShortestPath object " << this << " deleted." << endl;
 }
 
+void ShortestPath::path(int v, int w){
+    // Find the shortest path between u and v
+    // Check if is it adjacent
+    _v = v;
+    _w = w;
+    _path.push_back((*_graph)[v]);
+    if(_graph->is_adjacent(v, w)){
+        _path.push_back((*_graph)[w]);
+    }
+
+    // TO DO
+    // Add an else implementing Dijkstra algo
+}
+
+void ShortestPath::display_path(){
+    // Print the shortest path
+    vector<Vertex*>::iterator itr;
+    // Displaying vector elements
+    cout << "Printing shortest path:" << endl;
+    for (itr = _path.begin(); itr != _path.end(); itr++){
+        cout << **itr << "\t";
+    }
+    cout << endl;
+}
+
+int ShortestPath::path_cost(){
+    // Compute te path cost
+    int sum = 0;
+    vector<Vertex*>::iterator itr;
+    for (itr = _path.begin(); (itr + 1)!= _path.end(); itr++){
+        sum += _graph->get_edge_value((**itr).get_id(), (**(itr+1)).get_id());
+    }
+    return sum;
+}
+
 
 int main() {
     // /* Manual Graph creation */ 
-    // cout << "\nManual Graph creation:\n";   
-    // Graph* graph = new Graph();
+    cout << "\nManual Graph creation:\n";   
+    Graph* graph = new Graph();
     // cout << "\tNumber of vertices: " << graph->vertices_size() << endl;
     // cout << "\tNumber of edges: " << graph->edges_size() << endl;
-    // Vertex* vertex_ptr0 = new Vertex(0);
-    // Vertex* vertex_ptr1 = new Vertex(1);
-    // Edge* edge_ptr = new Edge(0,1,1);
-    // graph->add_vertex(vertex_ptr0);
-    // graph->add_vertex(vertex_ptr1);
+    Vertex* vertex_ptr0 = new Vertex(0);
+    Vertex* vertex_ptr1 = new Vertex(1);
+    Edge* edge_ptr = new Edge(0,1,100);
+    graph->add_vertex(vertex_ptr0);
+    graph->add_vertex(vertex_ptr1);
     // vertex_ptr1 = new Vertex(2);
     // graph->add_vertex(vertex_ptr1);
-    // graph->add_edge(edge_ptr);
-    // cout << "\tNumber of vertices: " << graph->vertices_size() << endl;
-    // cout << "\tNumber of edges: " << graph->edges_size() << endl;
-    // (*graph)[0].display_adjacencies();
+    graph->add_edge(edge_ptr);
+    cout << "\tNumber of vertices: " << graph->vertices_size() << endl;
+    cout << "\tNumber of edges: " << graph->edges_size() << endl;
+    (*graph)[0]->display_adjacencies();
     // graph->create_vertices();
     // cout << "\tNumber of vertices: " << graph->vertices_size() << endl;
     // cout << "\tNumber of edges: " << graph->edges_size() << endl;
     // cout << *graph << endl;
-    // delete(graph);
+    ShortestPath* shortest_path = new ShortestPath(graph);
+    shortest_path->path(0, 1);
+    cout << "Path size: " << shortest_path->path_size() << endl;
+    shortest_path->display_path();
+    cout << "Cost: " << shortest_path->path_cost() << endl;
+    delete(shortest_path);
     
     // /* Autometic Graph Creation*/
     // cout << "\nAutomatic graph generation:" << endl;
@@ -363,21 +405,21 @@ int main() {
 
     /* Automatic Graph Creation*/
     cout << "\nAutomatic graph generation:" << endl;
-    Graph* graph = new Graph();
-    graph->random_graph(5, 0.75, 10);
-    graph->neighbors(1);
-    cout << "is adjacent 1 and 2? " << graph->is_adjacent(1, 2) << endl;
+    Graph* graph1 = new Graph();
+    graph1->random_graph(5, 0.75, 10);
+    graph1->neighbors(1);
+    cout << "is adjacent 1 and 2? " << graph1->is_adjacent(1, 2) << endl;
     cout << "1 and 2 cost: ";
-    if (graph->is_adjacent(1,2)){
-        cout << graph->get_edge_value(1, 2);
+    if (graph1->is_adjacent(1,2)){
+        cout << graph1->get_edge_value(1, 2);
     } else {
         cout << "not conected";
     }
     cout << endl;
-    cout << *graph << endl;
-    cout << "Graph density: " << graph->density() << endl;
-    ShortestPath* shortest_path = new ShortestPath(graph);
-    cout << "Path size: " << shortest_path->path_size() << endl;
-    delete(shortest_path);
+    cout << *graph1 << endl;
+    cout << "Graph density: " << graph1->density() << endl;
+    ShortestPath* shortest_path1 = new ShortestPath(graph1);
+    cout << "Path size: " << shortest_path1->path_size() << endl;
+    delete(shortest_path1);
     return 0;
 }
