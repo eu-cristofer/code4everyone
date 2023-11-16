@@ -1,5 +1,5 @@
 /*
-    Code Title
+    Montecarlo simulation for a poker
 
     Cristofer Costa
     cristofercosta@yahoo.com.br
