@@ -32,7 +32,7 @@ public:
 };
 
 template<class T>
-class point3d:public point<T>{
+class point3d final:public point<T>{
 public:
     point3d(T x1, T y1, T z1): point<T>::point(x1, y1), z(z1){}
     double length(){return sqrt(this->first * this->first + this->second * this->second + z * z);}
@@ -56,6 +56,5 @@ int main(int argc, const char * argv[]) {
 
     point3d<int> position3d(0,0,4);
     cout << position3d.length() << endl;
-
     return 0;
 }
